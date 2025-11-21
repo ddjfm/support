@@ -37,15 +37,15 @@
         h1 { 
             font-size: 1.2rem; 
             color: #333; 
-            margin-bottom: 0.2rem; /* Weniger Abstand, da ein Link folgt */
+            margin-bottom: 0.2rem; 
         }
         .subtitle-link {
             font-size: 0.85rem;
             color: #0070ba;
             text-decoration: none;
             margin-top: 0;
-            margin-bottom: 1rem; /* Abstand nach unten zum nächsten Element */
-            display: block; /* Für korrekten Margin */
+            margin-bottom: 1rem;
+            display: block; 
         }
         .subtitle-link:hover {
             text-decoration: underline;
@@ -65,25 +65,28 @@
             border-radius: 8px;
             padding: 10px 0;
             cursor: pointer;
-            font-weight: 600;
+            /* NEUE WERTE HIER */
+            font-weight: 700; 
+            font-size: 1.2rem; /* ZAHL VERGRÖSSERT */
+            /* ENDE NEUE WERTE */
             color: #0070ba;
             transition: all 0.2s;
-            display: flex; /* Für Icon und Text nebeneinander */
-            flex-direction: column; /* Icon über Text */
+            display: flex; 
+            flex-direction: column; 
             align-items: center;
             justify-content: center;
-            height: 70px; /* Einheitliche Höhe für alle Buttons */
+            height: 90px; /* HÖHE VERGRÖSSERT */
         }
         .amount-btn img {
-            width: 35px; /* Größe der Geldschein-Icons */
+            width: 55px; /* ICON GRÖSSER */
             height: auto;
-            margin-bottom: 5px; /* Abstand zwischen Bild und Text */
-            filter: grayscale(80%); /* Leicht entsättigt für konsistenteres Design */
+            margin-bottom: 5px;
+            filter: grayscale(80%); 
             transition: filter 0.2s;
         }
         .amount-btn:hover { background: #e1e7ec; }
         .amount-btn:hover img {
-            filter: grayscale(0%); /* Farbe beim Hover */
+            filter: grayscale(0%); 
         }
         
         .input-group {
