@@ -24,7 +24,7 @@
             width: 90%;
         }
         
-        /* NEUES CSS FÜR DAS BILD-LOGO */
+        /* CSS für das Bild-Logo */
         .logo-img { 
             width: 80px; 
             height: 80px; 
@@ -34,7 +34,23 @@
             display: block; 
         } 
         
-        h1 { font-size: 1.2rem; color: #333; margin-bottom: 0.5rem; }
+        h1 { 
+            font-size: 1.2rem; 
+            color: #333; 
+            margin-bottom: 0.2rem; /* Weniger Abstand, da ein Link folgt */
+        }
+        .subtitle-link {
+            font-size: 0.85rem;
+            color: #0070ba;
+            text-decoration: none;
+            margin-top: 0;
+            margin-bottom: 1rem; /* Abstand nach unten zum nächsten Element */
+            display: block; /* Für korrekten Margin */
+        }
+        .subtitle-link:hover {
+            text-decoration: underline;
+        }
+
         p { color: #666; font-size: 0.9rem; margin-bottom: 1.5rem; }
         
         .button-grid {
@@ -52,8 +68,23 @@
             font-weight: 600;
             color: #0070ba;
             transition: all 0.2s;
+            display: flex; /* Für Icon und Text nebeneinander */
+            flex-direction: column; /* Icon über Text */
+            align-items: center;
+            justify-content: center;
+            height: 70px; /* Einheitliche Höhe für alle Buttons */
+        }
+        .amount-btn img {
+            width: 35px; /* Größe der Geldschein-Icons */
+            height: auto;
+            margin-bottom: 5px; /* Abstand zwischen Bild und Text */
+            filter: grayscale(80%); /* Leicht entsättigt für konsistenteres Design */
+            transition: filter 0.2s;
         }
         .amount-btn:hover { background: #e1e7ec; }
+        .amount-btn:hover img {
+            filter: grayscale(0%); /* Farbe beim Hover */
+        }
         
         .input-group {
             display: flex;
@@ -94,16 +125,30 @@
 <body>
 
 <div class="payment-card">
-    <img src="http://www.dirkbundies.de/DirkBundies2017_61kB.jpg" class="logo-img" alt="Logo Dirk Bundies">
+    <img src="https://images.weserv.nl/?url=www.dirkbundies.de/DirkBundies2017_61kB.jpg" class="logo-img" alt="Logo Dirk Bundies">
     
     <h1>Kaffeekasse / Projekt-Support</h1>
+    <a href="https://www.dirkbundies.de" class="subtitle-link" target="_blank">www.dirkbundies.de</a>
+    
     <p>Wähle einen Betrag für die Unterstützung.</p>
 
     <div class="button-grid">
-        <button class="amount-btn" onclick="setAmount(1)">1€</button>
-        <button class="amount-btn" onclick="setAmount(5)">5€</button>
-        <button class="amount-btn" onclick="setAmount(10)">10€</button>
-        <button class="amount-btn" onclick="setAmount(20)">20€</button>
+        <button class="amount-btn" onclick="setAmount(1)">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/1a/1_euro_banknote_-_Germany_-_Serie_ES1.jpg/800px-1_euro_banknote_-_Germany_-_Serie_ES1.jpg" alt="1 Euro Schein">
+            1€
+        </button>
+        <button class="amount-btn" onclick="setAmount(5)">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/69/5_euro_banknote_-_Germany_-_Serie_ES1.jpg/800px-5_euro_banknote_-_Germany_-_Serie_ES1.jpg" alt="5 Euro Schein">
+            5€
+        </button>
+        <button class="amount-btn" onclick="setAmount(10)">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/cd/10_euro_banknote_-_Germany_-_Serie_ES1.jpg/800px-10_euro_banknote_-_Germany_-_Serie_ES1.jpg" alt="10 Euro Schein">
+            10€
+        </button>
+        <button class="amount-btn" onclick="setAmount(20)">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/18/20_euro_banknote_-_Germany_-_Serie_ES1.jpg/800px-20_euro_banknote_-_Germany_-_Serie_ES1.jpg" alt="20 Euro Schein">
+            20€
+        </button>
     </div>
 
     <div class="input-group">
@@ -115,7 +160,6 @@
 </div>
 
 <script>
-    // HIER DEINEN PAYPAL.ME NAMEN EINTRAGEN
     const paypalMeUser = "dirkbundies"; 
 
     function setAmount(val) {
@@ -130,11 +174,7 @@
             return;
         }
 
-        // Ersetzt Komma durch Punkt für URL-Kompatibilität, falls nötig
         const cleanAmount = amount.replace(',', '.');
-        
-        // Baut den Link: paypal.me/USER/BETRAGEUR
-        // Beispiel: https://paypal.me/MaxMustermann/10EUR
         const url = `https://www.paypal.com/paypalme/${paypalMeUser}/${cleanAmount}EUR`;
         
         window.location.href = url;
