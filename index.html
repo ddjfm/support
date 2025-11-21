@@ -23,22 +23,17 @@
             max-width: 400px;
             width: 90%;
         }
-        .logo {
-            width: 80px;
-            height: 80px;
-            background-color: #0070ba; /* Platzhalter Farbe */
-            border-radius: 50%;
-            margin: 0 auto 1rem;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-weight: bold;
-            font-size: 24px;
-        }
-        /* Falls du ein echtes Bild nutzt:
-        .logo-img { width: 80px; height: 80px; border-radius: 50%; object-fit: cover; } 
-        */
+        
+        /* NEUES CSS FÜR DAS BILD-LOGO */
+        .logo-img { 
+            width: 80px; 
+            height: 80px; 
+            border-radius: 50%; /* Macht das Bild rund */
+            object-fit: cover; /* Stellt sicher, dass das Bild den Kreis ausfüllt */
+            margin: 0 auto 1rem; /* Zentriert und Abstand nach unten */
+            display: block; 
+        } 
+        
         h1 { font-size: 1.2rem; color: #333; margin-bottom: 0.5rem; }
         p { color: #666; font-size: 0.9rem; margin-bottom: 1.5rem; }
         
@@ -99,7 +94,8 @@
 <body>
 
 <div class="payment-card">
-    <div class="logo"><a href="http://www.dirkbundies.de/DirkBundies2017_61kB.jpg">DB</a></div> 
+    <img src="http://www.dirkbundies.de/DirkBundies2017_61kB.jpg" class="logo-img" alt="Logo Dirk Bundies">
+    
     <h1>Kaffeekasse / Projekt-Support</h1>
     <p>Wähle einen Betrag für die Unterstützung.</p>
 
